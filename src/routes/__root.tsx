@@ -1,8 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
 import appCss from '../styles.css?url'
 import Navbar from '@/components/shadcn-studio/blocks/navbar-component'
+import Providers from '@/components/Providers'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -36,26 +35,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <Navbar
-          navigationData={[
-            { title: 'Home', href: '#' },
-            { title: 'Products', href: '#' },
-            { title: 'About Us', href: '#' },
-            { title: 'Contacts', href: '#' },
-          ]}
-        />
-        {children}
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
+        <Navbar />
+        <Providers>{children}</Providers>
         <Scripts />
       </body>
     </html>

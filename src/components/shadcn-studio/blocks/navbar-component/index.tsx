@@ -1,5 +1,5 @@
 import { MenuIcon, SearchIcon } from 'lucide-react'
-
+import navigationData from './navigation-data'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -8,32 +8,25 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-
 import Logo from '@/components/shadcn-studio/logo'
 
-type NavigationItem = Array<{
-  title: string
-  href: string
-}>
-
-const Navbar = ({ navigationData }: { navigationData: NavigationItem }) => {
+const Navbar = () => {
   return (
     <header className="bg-background sticky top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-4 py-7 sm:px-6">
         <div className="text-muted-foreground flex justify-between items-center gap-8 font-medium md:justify-center lg:gap-16 w-full">
-          <a href="#">
+          <a href="#home">
             <Logo className="text-foreground gap-3" />
           </a>
-
-          <a href="#" className="hover:text-primary max-md:hidden">
-            Products
-          </a>
-          <a href="#" className="hover:text-primary max-md:hidden">
-            About Us
-          </a>
-          <a href="#" className="hover:text-primary max-md:hidden">
-            Contacts
-          </a>
+          {navigationData.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              className="hover:text-primary max-md:hidden"
+            >
+              {item.title}
+            </a>
+          ))}
         </div>
 
         <div className="flex items-center gap-6">
