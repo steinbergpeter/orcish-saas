@@ -1,7 +1,13 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import {
+  HeadContent,
+  Outlet,
+  Scripts,
+  createRootRoute,
+} from '@tanstack/react-router'
 import appCss from '../styles.css?url'
+import type { ReactNode } from 'react'
 import Navbar from '@/components/shadcn-studio/blocks/navbar-component'
-import Providers from '@/components/Providers'
+import Providers from '@/components/providers'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -25,18 +31,20 @@ export const Route = createRootRoute({
     ],
   }),
 
-  shellComponent: RootDocument,
+  component: RootDocument,
 })
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument() {
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
       <body>
-        <Navbar />
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          <Outlet />
+        </Providers>
         <Scripts />
       </body>
     </html>

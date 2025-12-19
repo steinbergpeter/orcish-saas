@@ -1,5 +1,6 @@
 import { MenuIcon, SearchIcon } from 'lucide-react'
 import navigationData from './navigation-data'
+import { ModeToggle } from './mode-toggle'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -12,7 +13,7 @@ import Logo from '@/components/shadcn-studio/logo'
 
 const Navbar = () => {
   return (
-    <header className="bg-background sticky top-0 z-50">
+    <header className="bg-purple-800 sticky top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-4 py-7 sm:px-6">
         <div className="text-muted-foreground flex justify-between items-center gap-8 font-medium md:justify-center lg:gap-16 w-full">
           <a href="#home">
@@ -30,10 +31,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <Button variant="ghost" size="icon">
+          {/* <Button variant="ghost" size="icon">
             <SearchIcon />
             <span className="sr-only">Search</span>
-          </Button>
+          </Button> */}
+          <ModeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger className="md:hidden" asChild>
               <Button variant="outline" size="icon">

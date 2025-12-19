@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 const ContactUsSection = () => {
   return (
-    <section id="contacts" className="bg-muted py-8 sm:py-16 lg:py-24">
+    <section id="contacts" className="bg-black py-8 sm:py-16 lg:py-24 pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="relative mx-auto mb-12 w-fit sm:mb-16 lg:mb-24">
